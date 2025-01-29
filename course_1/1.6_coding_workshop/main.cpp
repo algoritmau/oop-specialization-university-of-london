@@ -1,5 +1,9 @@
 #include <iostream>
+#include <map>
 using namespace std;
+
+// Map to store menu options
+map<int, void (*)()> menuOptions;
 
 void printExitInstructions()
 {
@@ -36,16 +40,30 @@ void goToNextTimeframe()
     cout << "6: Go to next timeframe." << endl;
 }
 
+// Map menu options to their respective functions
+void mapMenuOptionsToFunctions()
+{
+    menuOptions[0] = printExitInstructions;
+    menuOptions[1] = printHelp;
+    menuOptions[2] = printMarketStatistics;
+    menuOptions[3] = placeABuyOffer;
+    menuOptions[4] = placeASellBid;
+    menuOptions[5] = viewWallet;
+    menuOptions[6] = goToNextTimeframe;
+}
+
+
 // Function to display the menu
 void printMenu()
 {
-    printExitInstructions();
-    printHelp();
-    printMarketStatistics();
-    placeABuyOffer();
-    placeASellBid();
-    viewWallet();
-    goToNextTimeframe();
+    mapMenuOptionsToFunctions();
+    menuOptions[0]();
+    menuOptions[1]();
+    menuOptions[2]();
+    menuOptions[3]();
+    menuOptions[4]();
+    menuOptions[5]();
+    menuOptions[6]();
 }
 
 int getUserChoice()
@@ -79,7 +97,7 @@ void processUserChoice(int userChoice)
             cout << "Place a Sell Bid: Enter the details of the asset you'd like to sell and your asking price." << endl;
             break;
         case 5:
-            cout << "Portfolio: Here is an overview of your holdings, including asset types, quantities, and current values." << endl;
+            cout << "Wallet: Here is an overview of your holdings, including asset types, quantities, and current values." << endl;
             break;
         case 6:
             cout << "Proceeding to the next market session... Stay tuned for updates!" << endl;
