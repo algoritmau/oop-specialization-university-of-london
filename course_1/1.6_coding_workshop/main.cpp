@@ -1,17 +1,51 @@
 #include <iostream>
 using namespace std;
 
+void printExitInstructions()
+{
+    cout << "0: Exit the application." << endl;
+}
+
+void printHelp()
+{
+    cout << "1: View help and app information." << endl;
+}
+
+void printMarketStatistics()
+{
+    cout << "2: View market statistics." << endl;
+}
+
+void placeABuyOffer()
+{
+    cout << "3: Place a buy offer." << endl;
+}
+
+void placeASellBid()
+{
+    cout << "4: Place a sell bid." << endl;
+}
+
+void viewWallet()
+{
+    cout << "5: View your wallet." << endl;
+}
+
+void goToNextTimeframe()
+{
+    cout << "6: Go to next timeframe." << endl;
+}
+
 // Function to display the menu
 void printMenu()
 {
-    cout << "1: View help and app information." << endl;
-    cout << "2: View market statistics." << endl;
-    cout << "3: Place a buy offer." << endl;
-    cout << "4: Place a sell bid." << endl;
-    cout << "5: View your portfolio." << endl;
-    cout << "6: Proceed to the next market session." << endl;
-    cout << "0: Exit the application." << endl;
-    cout << "========================" << endl;
+    printExitInstructions();
+    printHelp();
+    printMarketStatistics();
+    placeABuyOffer();
+    placeASellBid();
+    viewWallet();
+    goToNextTimeframe();
 }
 
 int getUserChoice()
@@ -28,6 +62,10 @@ void processUserChoice(int userChoice)
 {
     switch (userChoice)
     {
+        case 0:
+            cout << "Exiting the application..." << endl;
+            exit(0);
+            break;
         case 1:
             cout << "Help: Use this app to trade stocks or cryptocurrencies, monitor markets, and manage your portfolio efficiently." << endl;
             break;
