@@ -34,3 +34,6 @@
 
 # Intellij
 .idea/
+
+# Misc
+.DS_Store
